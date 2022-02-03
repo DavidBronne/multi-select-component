@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { Company } from '../types/types'
+import { Company } from '../types/shared'
 
 interface Props {
     state:Company[];

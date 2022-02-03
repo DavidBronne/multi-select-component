@@ -1,4 +1,5 @@
 export interface Company {
-    title: string,
+    id: number;  
+    title: string;
     iSelected: boolean
   }
