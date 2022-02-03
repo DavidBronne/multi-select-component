@@ -10,22 +10,22 @@ const list: Company[] = [
   {
     id: 1,
     title: "Endeover",
-    iSelected: false
+    isSelected: true
   },    
   {
     id: 2,
     title: "Enterprise",
-    iSelected: false
+    isSelected: false
   },    
   {
     id: 3,
     title: "Atlantis",
-    iSelected: false
+    isSelected: false
   },    
   {
     id: 4,
     title: "Colombia",
-    iSelected: false
+    isSelected: false
   }
 ]
 

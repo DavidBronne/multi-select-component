@@ -1,5 +1,7 @@
 export interface Company {
     id: number;  
     title: string;
-    iSelected: boolean
+    isSelected: boolean
   }
+
+export type C = keyof Company;
