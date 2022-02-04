@@ -3,18 +3,11 @@ import React , {useState} from 'react'
 import { Company } from '../types/shared'
 
 interface Props {
-    setSearchInput: (searchInput:string) => void
+    setSearchInput: (searchInput:string) => void;
+    searchInput:string
 }
 
-const SearchField:React.FC<Props> = ( {setSearchInput}) => {
-
-
-    // const unSelectedList = filterListOnObjectKey(state, "isSelected");
-    // console.log('unselectedList :>> ', unSelectedList);
-
-    // const searchResultList = unSelectedList ? filterListOnObjectKey(unSelectedList, "title", searchInput) : [];
-    // console.log('searchResultList :>> ', searchResultList);
-    
+const SearchField:React.FC<Props> = ( {setSearchInput , searchInput}) => {
     
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setSearchInput(e.target.value);
@@ -23,7 +16,7 @@ const SearchField:React.FC<Props> = ( {setSearchInput}) => {
     return (
         <form>
             <label htmlFor="searchInput"></label>
-            <input type="text" id="searchInput" placeholder="Type to search" onChange={handleChange}/>
+            <input type="text" id="searchInput" value={searchInput} placeholder="Type to search" onChange={handleChange}/>
         </form>
     )
 }

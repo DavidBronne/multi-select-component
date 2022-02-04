@@ -10,7 +10,7 @@ const listInput: Company[] = [
   {
     id: 1,
     title: "Endeover",
-    isSelected: true
+    isSelected: false
   },    
   {
     id: 2,
