@@ -5,6 +5,7 @@ import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import SearchResult from './SearchResult'
 import SelectedItems from './SelectedItems'
+
 interface Props {
     listInput:Company[];
 }
@@ -40,11 +41,7 @@ const MultiSelect:React.FC<Props> = ({listInput}) => {
     }
     const unSelectedList = list.filter(item => !item.isSelected);
     const selectedList = list.filter(item => item.isSelected)
-
     const searchResult = searchFunction(unSelectedList , searchInput)
-console.log('state :>> ', state);
-console.log('searchResult :>> ', searchResult);
-console.log('selectedList :>> ', selectedList);
 
     return (
         <div>

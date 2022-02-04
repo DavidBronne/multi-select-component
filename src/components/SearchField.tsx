@@ -1,6 +1,3 @@
-import React , {useState} from 'react'
-// import { filterListOnObjectKey } from '../lib/shared';
-import { Company } from '../types/shared'
 
 interface Props {
     setSearchInput: (searchInput:string) => void;
@@ -14,7 +11,7 @@ const SearchField:React.FC<Props> = ( {setSearchInput , searchInput}) => {
     }
 
     return (
-        <form>
+        <form >
             <label htmlFor="searchInput"></label>
             <input type="text" id="searchInput" value={searchInput} placeholder="Type to search" onChange={handleChange}/>
         </form>
