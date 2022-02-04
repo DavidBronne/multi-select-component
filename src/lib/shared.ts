@@ -1,10 +1,9 @@
-import { C, Company } from "../types/shared"
-
-const booleanFilterListOnObjectKey = (list:Company[], criteria:C) => {
-
-    return [...list].filter(item => !item[criteria])
+import { KeyOfCompany, Company } from "../types/shared"
+const  searchFunction = ( list:Company[], value:string ) => {
+ return list.filter( item => {
+     return item.title.includes(value)
+ }) 
 }
 
 
-
-export {booleanFilterListOnObjectKey}
+export { searchFunction }

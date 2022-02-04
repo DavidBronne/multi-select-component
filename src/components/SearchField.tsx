@@ -1,27 +1,19 @@
 import React , {useState} from 'react'
-import { booleanFilterListOnObjectKey } from '../lib/shared';
-import { C, Company } from '../types/shared'
+// import { filterListOnObjectKey } from '../lib/shared';
+import { Company } from '../types/shared'
 
 interface Props {
-    state:Company[];
-    setstate: React.Dispatch<React.SetStateAction<Company[]>>
+    setSearchInput: (searchInput:string) => void
 }
 
-const SearchField:React.FC<Props> = ( {state, setstate}) => {
-    const [searchInput, setSearchInput] = useState<string>('')
-    console.log('searchInput :>> ', searchInput);
+const SearchField:React.FC<Props> = ( {setSearchInput}) => {
 
-    const unselectedList = booleanFilterListOnObjectKey(state, "isSelected");
-    console.log('unselectedList :>> ', unselectedList);
 
-    // const stringFilterListOnObjectKey = ( list :Company[] , keyCriteria:C, valueCriteria:any) => {
-    //     console.log('keyCriteria :>> ', keyCriteria);
-    //     return unselectedList.filter(item => console.log(typeof(item[keyCriteria])))
-    // }
-    // const searchResultList = stringFilterListOnObjectKey(unselectedList, "title", "e")
-    const searchResultList = unselectedList.filter(item => item.title.includes(searchInput))
-    
-    console.log('searchResultList :>> ', searchResultList);
+    // const unSelectedList = filterListOnObjectKey(state, "isSelected");
+    // console.log('unselectedList :>> ', unSelectedList);
+
+    // const searchResultList = unSelectedList ? filterListOnObjectKey(unSelectedList, "title", searchInput) : [];
+    // console.log('searchResultList :>> ', searchResultList);
     
     
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {

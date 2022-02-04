@@ -6,7 +6,7 @@ import { Company } from './types/shared';
 
 const App : React.FC = () => {
 
-const list: Company[] = [
+const listInput: Company[] = [
   {
     id: 1,
     title: "Endeover",
@@ -32,7 +32,7 @@ const list: Company[] = [
   return (
       <div className="App">
         <div>OrbitalAds frontend challenge</div>
-        <MultiSelect list={list}/>
+        <MultiSelect listInput={listInput}/>
       </div>
   );
 }
