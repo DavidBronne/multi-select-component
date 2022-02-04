@@ -43,7 +43,7 @@ console.log('selectedList :>> ', selectedList);
         <div>
             <SearchField setSearchInput={setSearchInput} />
             <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>
-            <SelectedItems selectedList={selectedList} />
+            <SelectedItems selectedList={selectedList} toggleIsSelected={toggleIsSelected}/>
         </div>
     )
 }
