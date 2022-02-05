@@ -3,3 +3,7 @@
     border-color: red;
     margin: 1px;
 }
+
+.hovering {
+    background-color: hotpink;
+}
