@@ -1,11 +1,11 @@
 import React from 'react';
-import { PropsSearchResult } from '../types/shared';
+import { PropsList } from '../types/shared';
 import ItemCard from './ItemCard';
 
-const SearchResult:React.FC<PropsSearchResult> = ({searchResult , toggleIsSelected}) => {
+const List:React.FC<PropsList> = ({list , toggleIsSelected}) => {
     return (
         <div className="selection-view">
-            {searchResult?.map( item => {
+            {list?.map( item => {
                 return (
                     <div key={item.id} onClick={() => toggleIsSelected(item.id)} >
                         <ItemCard title={item.title} />
@@ -16,4 +16,4 @@ const SearchResult:React.FC<PropsSearchResult> = ({searchResult , toggleIsSelect
     ) 
 }
 
-export default SearchResult
+export default List

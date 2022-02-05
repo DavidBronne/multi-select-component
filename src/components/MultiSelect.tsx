@@ -5,8 +5,7 @@ import '../styles/MultiSelect.css'
 //Components
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
-import SearchResult from './SearchResult'
-import SelectedItems from './SelectedItems'
+import List from './List'
 
 const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
    
@@ -31,8 +30,8 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
                 <ClearButton clearAll={clearAll} selectedList={selectedList}/>  
             </div>
             <div className="board selection-board">
-                <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>
-                <SelectedItems selectedList={selectedList} toggleIsSelected={toggleIsSelected}/>
+                <List list={searchResult} toggleIsSelected={toggleIsSelected}/>
+                <List list={selectedList} toggleIsSelected={toggleIsSelected}/>
             </div>
         </div>
     )

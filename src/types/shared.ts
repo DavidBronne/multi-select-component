@@ -4,13 +4,8 @@ export interface Item {
     isSelected: boolean
   }
 
-export interface PropsSelectedItems {
-  selectedList:Item[];
-  toggleIsSelected: (id:number) => void
-}
-
-export interface PropsSearchResult {
-  searchResult:Item[],
+export interface PropsList {
+  list:Item[],
   toggleIsSelected: (id:number) => void
 }
 
