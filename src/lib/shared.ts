@@ -10,7 +10,7 @@ interface Action {
     payload?: any
 }
 
-const  searchFunction = ( list:Item[], value:string ):Item[] => {
+const  search = ( list:Item[], value:string ):Item[] => {
  return (
     list.filter( item => {
         return item.title.toLowerCase().includes(value.toLowerCase())
@@ -18,7 +18,7 @@ const  searchFunction = ( list:Item[], value:string ):Item[] => {
  ) 
 }
 
-const sortFunction = (array:Item[]):Item[] => {
+const sort = (array:Item[]):Item[] => {
     console.log('array', array);
     return (
         array.sort(function (a, b) {
@@ -30,7 +30,7 @@ const sortFunction = (array:Item[]):Item[] => {
 const multiSelectReducer = (state:State, action:Action):State => {
     const {type, payload} = action
     switch (type) {
-      case 'CLEAR_ALL_SELECTION_SEARCH': {
+      case 'CLEAR_ALL': {
         return {
             list:[...payload],
             searchInput:""
@@ -57,7 +57,7 @@ const multiSelectReducer = (state:State, action:Action):State => {
   }
 
 export { 
-    searchFunction,
-    sortFunction,
+    search,
+    sort,
     multiSelectReducer
  }

@@ -29,5 +29,5 @@ export interface PropsItemCard {
 
 export interface PropsClearButton {
   selectedList:Item[];  
-  clearAllSelectionAndSearch: () => void
+  clearAll: () => void
 }

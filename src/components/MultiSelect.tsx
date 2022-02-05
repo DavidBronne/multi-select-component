@@ -1,11 +1,12 @@
 import React, {useReducer} from 'react'
-import { multiSelectReducer, searchFunction, sortFunction } from '../lib/shared'
+import { multiSelectReducer, search, sort } from '../lib/shared'
 import { PropsMultiSelect } from '../types/shared'
+import '../styles/MultiSelect.css'
+//Components
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import SearchResult from './SearchResult'
 import SelectedItems from './SelectedItems'
-import '../styles/MultiSelect.css'
 
 const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
    
@@ -16,18 +17,18 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
     const { list, searchInput} = state;
 
     const setSearchInput = (searchInput:string):void => dispatch({type:'SET_SEARCH_INPUT',payload:searchInput});
-    const clearAllSelectionAndSearch = ():void => dispatch({type:'CLEAR_ALL_SELECTION_SEARCH', payload:listInput});
+    const clearAll = ():void => dispatch({type:'CLEAR_ALL', payload:listInput});
     const toggleIsSelected = (itemId:number):void => dispatch ({type:'TOGGLE_IS_SELECTED', payload:itemId});
     
     const unSelectedList = list.filter(item => !item.isSelected);
-    const selectedList = sortFunction(list.filter(item => item.isSelected))
-    const searchResult = sortFunction(searchFunction(unSelectedList , searchInput))
+    const selectedList = sort(list.filter(item => item.isSelected))
+    const searchResult = sort(search(unSelectedList , searchInput))
 
     return (
         <div className="multi-select">
             <div className="board search-board">
                 <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
-                <ClearButton clearAllSelectionAndSearch={clearAllSelectionAndSearch} selectedList={selectedList}/>  
+                <ClearButton clearAll={clearAll} selectedList={selectedList}/>  
             </div>
             <div className="board selection-board">
                 <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>
