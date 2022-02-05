@@ -1,5 +1,15 @@
 import { Company } from "../types/shared";
 
+interface State {
+    list: Company[],
+    searchInput:string
+}
+
+interface Action {
+    type: string ;
+    payload?: any
+}
+
 const  searchFunction = ( list:Company[], value:string ):Company[] => {
  return (
     list.filter( item => {
@@ -15,16 +25,6 @@ const sortFunction = (array:Company[]):Company[] => {
             return a.title.localeCompare(b.title);
           })
     )
-}
-
-interface State {
-    list: Company[],
-    searchInput:string
-}
-
-interface Action {
-    type: string ;
-    payload?: any
 }
 
 const multiSelectReducer = (state:State, action:Action):State => {

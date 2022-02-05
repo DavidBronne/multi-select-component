@@ -4,8 +4,3 @@ export interface Company {
     isSelected: boolean
   }
 
-export interface State {
-  list:Company[];
-  searchInput: string
-}
-export type KeyOfCompany = keyof Company;
