@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropsList } from '../types/shared';
+import { PropsList } from '../types/MultiSelect';
 import ItemCard from './ItemCard';
 
 const List:React.FC<PropsList> = ({list , toggleIsSelected}) => {

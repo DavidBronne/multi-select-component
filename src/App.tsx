@@ -1,7 +1,7 @@
 import React  from 'react';
 import './App.css';
 import MultiSelect from './components/MultiSelect';
-import { Item } from './types/shared';
+import { Item } from './types/MultiSelect';
 
 
 const App : React.FC = () => {

@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import '../styles/MultiSelect.css';
-import { PropsItemCard } from '../types/shared';
+import { PropsItemCard } from '../types/MultiSelect';
 
 const ItemCard:React.FC<PropsItemCard> = ( {title} ) => {
   

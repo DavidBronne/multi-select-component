@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropsSearchField } from '../types/shared';
+import { PropsSearchField } from '../types/MultiSelect';
 
 const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput}) => {
     

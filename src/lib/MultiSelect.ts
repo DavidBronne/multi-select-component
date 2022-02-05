@@ -1,13 +1,19 @@
-import { Item } from "../types/shared";
+import { Item } from "../types/MultiSelect";
 
 interface State {
     list: Item[],
     searchInput:string
 }
 
+enum ReducerActionType {
+  CLEAR_ALL,
+  SET_SEARCH_INPUT,
+  TOGGLE_IS_SELECTED
+}
+
 interface Action {
-    type: string ;
-    payload?: any
+    type: ReducerActionType ;
+    payload: any | Item[] | string | number
 }
 
 const  search = ( list:Item[], value:string ):Item[] => {
@@ -19,7 +25,6 @@ const  search = ( list:Item[], value:string ):Item[] => {
 }
 
 const sort = (array:Item[]):Item[] => {
-    console.log('array', array);
     return (
         array.sort(function (a, b) {
             return a.title.localeCompare(b.title);
@@ -30,19 +35,20 @@ const sort = (array:Item[]):Item[] => {
 const multiSelectReducer = (state:State, action:Action):State => {
     const {type, payload} = action
     switch (type) {
-      case 'CLEAR_ALL': {
+      case ReducerActionType.CLEAR_ALL: {
         return {
             list:[...payload],
             searchInput:""
         }
       }
-      case 'SET_SEARCH_INPUT': {
+      case ReducerActionType.SET_SEARCH_INPUT: {
         return {
             ...state,
             searchInput:payload
         }
       }
-      case 'TOGGLE_IS_SELECTED': {
+      case ReducerActionType.TOGGLE_IS_SELECTED: {
+        console.log('payload', payload);
         return {
             ...state,
             list: state.list.map((item => {
