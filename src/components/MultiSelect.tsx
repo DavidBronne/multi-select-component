@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { searchFunction } from '../lib/shared'
+import { searchFunction, sortFunction } from '../lib/shared'
 import { Company, State } from '../types/shared'
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
@@ -41,8 +41,8 @@ const MultiSelect:React.FC<Props> = ({listInput}) => {
         })
     }
     const unSelectedList = list.filter(item => !item.isSelected);
-    const selectedList = list.filter(item => item.isSelected)
-    const searchResult = searchFunction(unSelectedList , searchInput)
+    const selectedList = sortFunction(list.filter(item => item.isSelected))
+    const searchResult = sortFunction(searchFunction(unSelectedList , searchInput))
 
     return (
         <div className="multi-select">

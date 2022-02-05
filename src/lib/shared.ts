@@ -8,6 +8,16 @@ const  searchFunction = ( list:Company[], value:string ) => {
  ) 
 }
 
+const sortFunction = (array:Company[]):any => {
+    console.log('array', array);
+    return (
+        array.sort(function (a, b) {
+            return a.title.localeCompare(b.title);
+          })
+    )
+}
 
-
-export { searchFunction }
+export { 
+    searchFunction,
+    sortFunction
+ }
