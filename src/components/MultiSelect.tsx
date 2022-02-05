@@ -35,8 +35,8 @@ console.log('list :>> ', list);
     return (
         <div className="multi-select">
             <div className="board search-board">
-                <AddField addOption={addOption}/>
                 <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
+                <AddField addOption={addOption}/>
                 <ClearButton clearAll={clearAll} selectedList={selectedList}/>  
             </div>
             <div className="board selection-board">
