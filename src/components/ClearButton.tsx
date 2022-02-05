@@ -6,8 +6,11 @@ const ClearButton:React.FC<PropsClearButton> = ( {clearAllSelectionAndSearch , s
   const isDisabled = selectedList.length ? false : true ;
   
   return (
-    <button onClick={clearAllSelectionAndSearch} disabled={isDisabled}>
-        Clear All
+    <button 
+      onClick={clearAllSelectionAndSearch} 
+      disabled={isDisabled}
+    >
+      Clear All
     </button>
   );
 };

@@ -10,7 +10,14 @@ const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput})
     return (
         <form >
             <label htmlFor="searchInput"></label>
-            <input type="text" id="searchInput" value={searchInput} placeholder="Type to search" onChange={handleChange}/>
+            <input
+                className = "input" 
+                type="text" 
+                id="searchInput" 
+                value={searchInput} 
+                placeholder="Type to search" 
+                onChange={handleChange}
+            />
         </form>
     )
 }

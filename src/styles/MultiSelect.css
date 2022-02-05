@@ -1,3 +1,4 @@
+/* MultiSelect */
 .multi-select {
     display: flex;
     flex-direction: column;
@@ -13,13 +14,19 @@
     padding: 4px;
 }
 
+@media (max-width: 400px) {
+    .board {
+      flex-direction: column;
+    }
+  }
+
 .search-board {
     justify-content: space-between;
     
 }
 
 .selection-board {
-    flex-direction: row;
+    /* flex-direction: row; */
 }
 
 .selection-view {
@@ -28,4 +35,23 @@
     border-style: solid;
     border-color: green;
     width: 50%;
+}
+
+/* ItemCard */
+
+.item-card {
+    border-style: solid;
+    border-color: red;
+    margin: 1px;
+}
+
+/* ClearButton */
+
+.hovering {
+    background-color: hotpink;
+}
+
+/* SearchField */
+.input {
+    background-color: hotpink;
 }
