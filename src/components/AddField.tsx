@@ -14,6 +14,7 @@ const AddField:React.FC<PropsAddOption> = ( {addOption} ) => {
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault()
         addOption(option)
+        setOption("")
     }
 
     return (
@@ -22,7 +23,8 @@ const AddField:React.FC<PropsAddOption> = ( {addOption} ) => {
           <input  
             className = "input"
             type="text" 
-            id="add-input" 
+            id="add-input"
+            value={option} 
             placeholder="Add option"
             onChange={handleChange}
             />
