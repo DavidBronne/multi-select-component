@@ -1,0 +1,30 @@
+.multi-select {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    width: 80vw
+}
+
+.board {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    width: 100%;
+}
+
+.search-board {
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.selection-board {
+    
+}
+
+.selection-view {
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: green;
+    width: 50%;
+}

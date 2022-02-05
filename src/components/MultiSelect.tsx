@@ -5,6 +5,7 @@ import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import SearchResult from './SearchResult'
 import SelectedItems from './SelectedItems'
+import '../styles/MultiSelect.css'
 
 interface Props {
     listInput:Company[];
@@ -42,13 +43,18 @@ const MultiSelect:React.FC<Props> = ({listInput}) => {
     const unSelectedList = list.filter(item => !item.isSelected);
     const selectedList = list.filter(item => item.isSelected)
     const searchResult = searchFunction(unSelectedList , searchInput)
-
+console.log('selectedList :>> ', selectedList);
+console.log('searchResult :>> ', searchResult);
     return (
-        <div>
-            <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
-            <ClearButton clearAllSelectionAndSearch={clearAllSelectionAndSearch}/>  
-            <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>
-            <SelectedItems selectedList={selectedList} toggleIsSelected={toggleIsSelected}/>
+        <div className="multi-select">
+            <div className="board search-board">
+                <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
+                <ClearButton clearAllSelectionAndSearch={clearAllSelectionAndSearch}/>  
+            </div>
+            <div className="board">
+                <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>
+                <SelectedItems selectedList={selectedList} toggleIsSelected={toggleIsSelected}/>
+            </div>
         </div>
     )
 }

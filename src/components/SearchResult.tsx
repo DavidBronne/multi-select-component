@@ -1,5 +1,6 @@
 import React from 'react'
 import { Company } from '../types/shared'
+import ItemCard from './ItemCard'
 
 interface Props {
     searchResult:Company[],
@@ -8,10 +9,12 @@ interface Props {
 
 const SearchResult:React.FC<Props> = ({searchResult , toggleIsSelected}) => {
     return (
-        <div >
+        <div className="selection-view">
             {searchResult?.map( company => {
                 return (
-                    <div key={company.id} onClick={() => toggleIsSelected(company.id)} >{company.title}</div>
+                    <div key={company.id} onClick={() => toggleIsSelected(company.id)} >
+                        <ItemCard title={company.title} />
+                    </div>
                 )
             })}
         </div> 
