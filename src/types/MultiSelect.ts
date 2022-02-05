@@ -17,7 +17,7 @@ export interface PropsSearchField {
 }
 
 export interface PropsMultiSelect {
-    listInput:Item[];
+    listInput?:Item[];
 }
 
 export interface PropsItemCard {

@@ -7,7 +7,13 @@ import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import List from './List'
 
-const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
+const defaultProps = [{
+    id: 0,
+    title: "Please, pass a list as props to the MultiSelect Comp",
+    isSelected: false
+  }]
+
+const MultiSelect:React.FC<PropsMultiSelect> = ({listInput = defaultProps}) => {
    
     const [state, dispatch] = useReducer(multiSelectReducer, {
         list: [...listInput],
