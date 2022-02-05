@@ -1,20 +1,4 @@
-import { Item } from "../types/MultiSelect";
-
-interface State {
-    list: Item[],
-    searchInput:string
-}
-
-enum ReducerActionType {
-  CLEAR_ALL,
-  SET_SEARCH_INPUT,
-  TOGGLE_IS_SELECTED
-}
-
-interface Action {
-    type: ReducerActionType ;
-    payload: any | Item[] | string | number
-}
+import { Action, Item, ReducerActionType, State } from "../types/MultiSelect";
 
 const  search = ( list:Item[], value:string ):Item[] => {
  return (
@@ -32,12 +16,13 @@ const sort = (array:Item[]):Item[] => {
     )
 }
 
-const multiSelectReducer = (state:State, action:Action):State => {
+const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
     const {type, payload} = action
     switch (type) {
       case ReducerActionType.CLEAR_ALL: {
+        console.log('payload', payload);
         return {
-            list:[...payload],
+            list:payload,
             searchInput:""
         }
       }
@@ -48,7 +33,6 @@ const multiSelectReducer = (state:State, action:Action):State => {
         }
       }
       case ReducerActionType.TOGGLE_IS_SELECTED: {
-        console.log('payload', payload);
         return {
             ...state,
             list: state.list.map((item => {

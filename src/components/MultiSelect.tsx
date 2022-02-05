@@ -1,16 +1,12 @@
 import React, {useReducer} from 'react'
 import { multiSelectReducer, search, sort } from '../lib/MultiSelect'
-import { PropsMultiSelect } from '../types/MultiSelect'
+import { PropsMultiSelect, ReducerActionType } from '../types/MultiSelect'
 import '../styles/MultiSelect.css'
 //Components
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import List from './List'
-enum ReducerActionType {
-    CLEAR_ALL,
-    SET_SEARCH_INPUT,
-    TOGGLE_IS_SELECTED
-  }
+
 const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
    
     const [state, dispatch] = useReducer(multiSelectReducer, {
