@@ -43,15 +43,14 @@ const MultiSelect:React.FC<Props> = ({listInput}) => {
     const unSelectedList = list.filter(item => !item.isSelected);
     const selectedList = list.filter(item => item.isSelected)
     const searchResult = searchFunction(unSelectedList , searchInput)
-console.log('selectedList :>> ', selectedList);
-console.log('searchResult :>> ', searchResult);
+
     return (
         <div className="multi-select">
             <div className="board search-board">
                 <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
                 <ClearButton clearAllSelectionAndSearch={clearAllSelectionAndSearch}/>  
             </div>
-            <div className="board">
+            <div className="board selection-board">
                 <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>
                 <SelectedItems selectedList={selectedList} toggleIsSelected={toggleIsSelected}/>
             </div>

@@ -10,15 +10,16 @@
     flex-direction: row;
     border-style: solid;
     width: 100%;
+    padding: 4px;
 }
 
 .search-board {
     justify-content: space-between;
-    padding: 4px;
+    
 }
 
 .selection-board {
-    
+    flex-direction: row;
 }
 
 .selection-view {
