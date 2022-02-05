@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import { searchFunction, sortFunction } from '../lib/shared'
-import { Company, State } from '../types/shared'
+import React, {useReducer} from 'react'
+import { multiSelectReducer, searchFunction, sortFunction } from '../lib/shared'
+import { Company } from '../types/shared'
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import SearchResult from './SearchResult'
@@ -12,34 +12,17 @@ interface Props {
 }
 
 const MultiSelect:React.FC<Props> = ({listInput}) => {
-    const [state, setState] = useState<State>({
+   
+    const [state, dispatch] = useReducer(multiSelectReducer, {
         list: [...listInput],
         searchInput:""
-    })
-    const {list, searchInput} = state;
+      })
+    const { list, searchInput} = state;
 
-    const setSearchInput = (input:string):void => {
-        setState({
-            ...state,
-            searchInput:input
-        })
-    }
-
-    const toggleIsSelected = (compId:number):void => {
-        setState({
-            ...state,
-            list: list.map((item => {
-                return item.id === compId ? {...item, isSelected:!item.isSelected} : item
-            }))
-        })
-    }
-
-    const clearAllSelectionAndSearch = ():void => {
-        setState({
-            list: [...listInput],
-            searchInput:""
-        })
-    }
+    const setSearchInput = (searchInput:string):void => dispatch({type:'SET_SEARCH_INPUT',payload:searchInput});
+    const clearAllSelectionAndSearch = ():void => dispatch({type:'CLEAR_ALL_SELECTION_SEARCH', payload:listInput});
+    const toggleIsSelected = (itemId:number):void => dispatch ({type:'TOGGLE_IS_SELECTED', payload:itemId});
+    
     const unSelectedList = list.filter(item => !item.isSelected);
     const selectedList = sortFunction(list.filter(item => item.isSelected))
     const searchResult = sortFunction(searchFunction(unSelectedList , searchInput))
