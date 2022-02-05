@@ -1,17 +1,13 @@
 import React, {useReducer} from 'react'
 import { multiSelectReducer, searchFunction, sortFunction } from '../lib/shared'
-import { Company } from '../types/shared'
+import { PropsMultiSelect } from '../types/shared'
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import SearchResult from './SearchResult'
 import SelectedItems from './SelectedItems'
 import '../styles/MultiSelect.css'
 
-interface Props {
-    listInput:Company[];
-}
-
-const MultiSelect:React.FC<Props> = ({listInput}) => {
+const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
    
     const [state, dispatch] = useReducer(multiSelectReducer, {
         list: [...listInput],

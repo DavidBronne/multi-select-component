@@ -1,11 +1,8 @@
 import React from 'react';
 import '../styles/ItemCard.css';
+import { PropsItemCard } from '../types/shared';
 
-interface Props {
-    title: string
-}
-
-const ItemCard:React.FC<Props> = ( {title} ) => {
+const ItemCard:React.FC<PropsItemCard> = ( {title} ) => {
   return (
     <div className="item-card">
       {title}

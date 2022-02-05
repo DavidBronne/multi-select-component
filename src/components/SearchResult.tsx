@@ -1,13 +1,8 @@
-import React from 'react'
-import { Company } from '../types/shared'
-import ItemCard from './ItemCard'
+import React from 'react';
+import { PropsSearchResult } from '../types/shared';
+import ItemCard from './ItemCard';
 
-interface Props {
-    searchResult:Company[],
-    toggleIsSelected: (id:number) => void
-}
-
-const SearchResult:React.FC<Props> = ({searchResult , toggleIsSelected}) => {
+const SearchResult:React.FC<PropsSearchResult> = ({searchResult , toggleIsSelected}) => {
     return (
         <div className="selection-view">
             {searchResult?.map( company => {

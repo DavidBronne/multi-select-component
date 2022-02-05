@@ -1,10 +1,7 @@
+import React from 'react';
+import { PropsSearchField } from '../types/shared';
 
-interface Props {
-    setSearchInput: (searchInput:string) => void;
-    searchInput:string
-}
-
-const SearchField:React.FC<Props> = ( {setSearchInput , searchInput}) => {
+const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput}) => {
     
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setSearchInput(e.target.value);

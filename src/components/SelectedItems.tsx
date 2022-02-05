@@ -1,14 +1,8 @@
 import React from 'react';
-import { Company } from '../types/shared';
+import { PropsSelectedItems } from '../types/shared';
 import ItemCard from './ItemCard';
 
-
-interface Props {
-    selectedList:Company[];
-    toggleIsSelected: (id:number) => void
-}
-
-const SelectedItems:React.FC<Props> = ( {selectedList , toggleIsSelected} ) => {
+const SelectedItems:React.FC<PropsSelectedItems> = ( {selectedList , toggleIsSelected} ) => {
   return (
     <div className="selection-view">
         {selectedList.map(item => {

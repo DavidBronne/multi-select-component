@@ -1,10 +1,7 @@
 import React from 'react';
+import { PropsClearButton } from '../types/shared';
 
-interface Props {
-    clearAllSelectionAndSearch: () => void
-}
-
-const ClearButton:React.FC<Props> = ( {clearAllSelectionAndSearch} ) => {
+const ClearButton:React.FC<PropsClearButton> = ( {clearAllSelectionAndSearch} ) => {
   return (
     <button onClick={clearAllSelectionAndSearch}>
         Clear All
