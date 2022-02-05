@@ -39,12 +39,13 @@ export interface State {
 export enum ReducerActionType {
   CLEAR_ALL,
   SET_SEARCH_INPUT,
-  TOGGLE_IS_SELECTED
+  TOGGLE_IS_SELECTED,
+  ADD_OPTION
 }
 
 type ActionClearAll = {
   type: ReducerActionType.CLEAR_ALL ;
-  payload: Item[] | string | number | boolean | undefined | any
+  payload: any | Item[]
 }
 
 type ActionSetSearchInput = {
@@ -57,4 +58,9 @@ type ActionToggleIsSelected  = {
   payload: number
 }
 
-export type Action = ActionClearAll | ActionSetSearchInput | ActionToggleIsSelected
+type ActionAddOption  = {
+  type: ReducerActionType.ADD_OPTION ;
+  payload: string
+}
+
+export type Action = ActionClearAll | ActionSetSearchInput | ActionToggleIsSelected | ActionAddOption

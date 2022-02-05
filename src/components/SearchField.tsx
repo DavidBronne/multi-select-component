@@ -9,11 +9,11 @@ const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput})
 
     return (
         <form >
-            <label htmlFor="searchInput"></label>
+            <label htmlFor="search-input"></label>
             <input
                 className = "input" 
                 type="text" 
-                id="searchInput" 
+                id="search-input" 
                 value={searchInput} 
                 placeholder="Type to search" 
                 onChange={handleChange}

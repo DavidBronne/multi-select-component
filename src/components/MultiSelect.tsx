@@ -1,11 +1,13 @@
 import React, {useReducer} from 'react'
-import { multiSelectReducer, search, sort } from '../lib/MultiSelect'
+import { search, sort } from '../lib/helpers'
 import { PropsMultiSelect, ReducerActionType } from '../types/MultiSelect'
 import '../styles/MultiSelect.css'
 //Components
 import ClearButton from './ClearButton'
 import SearchField from './SearchField'
 import List from './List'
+import AddField from './AddField'
+import { multiSelectReducer } from '../lib/reducer'
 
 const defaultProps = [{
     id: 0,
@@ -20,11 +22,12 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({listInput = defaultProps}) => {
         searchInput:""
       })
     const { list, searchInput} = state;
-
+console.log('list :>> ', list);
     const setSearchInput = (searchInput:string):void => dispatch({type:ReducerActionType.SET_SEARCH_INPUT,payload:searchInput});
     const clearAll = ():void => dispatch({type:ReducerActionType.CLEAR_ALL, payload:listInput});
     const toggleIsSelected = (itemId:number):void => dispatch ({type:ReducerActionType.TOGGLE_IS_SELECTED, payload:itemId});
-    
+    const addOption = (option:string) => dispatch({type:ReducerActionType.ADD_OPTION, payload:option});
+
     const unSelectedList = list.filter(item => !item.isSelected);
     const selectedList = sort(list.filter(item => item.isSelected))
     const searchResult = sort(search(unSelectedList , searchInput))
@@ -32,6 +35,7 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({listInput = defaultProps}) => {
     return (
         <div className="multi-select">
             <div className="board search-board">
+                <AddField addOption={addOption}/>
                 <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
                 <ClearButton clearAll={clearAll} selectedList={selectedList}/>  
             </div>

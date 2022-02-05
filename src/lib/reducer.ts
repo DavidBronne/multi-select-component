@@ -1,20 +1,5 @@
-import { Action, Item, ReducerActionType, State } from "../types/MultiSelect";
-
-const  search = ( list:Item[], value:string ):Item[] => {
- return (
-    list.filter( item => {
-        return item.title.toLowerCase().includes(value.toLowerCase())
-    })
- ) 
-}
-
-const sort = (array:Item[]):Item[] => {
-    return (
-        array.sort(function (a, b) {
-            return a.title.localeCompare(b.title);
-          })
-    )
-}
+import { State, Action, ReducerActionType } from "../types/MultiSelect";
+import { shapeAddedOption } from "./helpers";
 
 const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
     const {type, payload} = action
@@ -22,7 +7,8 @@ const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
       case ReducerActionType.CLEAR_ALL: {
         console.log('payload', payload);
         return {
-            list:payload,
+            ...state,
+            list:[...payload],
             searchInput:""
         }
       }
@@ -40,14 +26,16 @@ const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
             }))
         }
       }
+      case ReducerActionType.ADD_OPTION: {
+        return {
+            ...state,
+            list: [...state.list, shapeAddedOption(payload)]
+        }
+      }
       default: {
         throw new Error(`Unsupported action type: ${type}`)
       }
     }
   }
 
-export { 
-    search,
-    sort,
-    multiSelectReducer
- }
+  export {multiSelectReducer}
