@@ -1,16 +1,16 @@
-export interface Company {
+export interface Item {
     id: number;  
     title: string;
     isSelected: boolean
   }
 
 export interface PropsSelectedItems {
-  selectedList:Company[];
+  selectedList:Item[];
   toggleIsSelected: (id:number) => void
 }
 
 export interface PropsSearchResult {
-  searchResult:Company[],
+  searchResult:Item[],
   toggleIsSelected: (id:number) => void
 }
 
@@ -20,7 +20,7 @@ export interface PropsSearchField {
 }
 
 export interface PropsMultiSelect {
-    listInput:Company[];
+    listInput:Item[];
 }
 
 export interface PropsItemCard {
@@ -28,6 +28,6 @@ export interface PropsItemCard {
 }
 
 export interface PropsClearButton {
-  selectedList:Company[];  
+  selectedList:Item[];  
   clearAllSelectionAndSearch: () => void
 }

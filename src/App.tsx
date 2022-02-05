@@ -1,12 +1,12 @@
 import React  from 'react';
 import './App.css';
 import MultiSelect from './components/MultiSelect';
-import { Company } from './types/shared';
+import { Item } from './types/shared';
 
 
 const App : React.FC = () => {
 
-const listInput: Company[] = [
+const listInput: Item[] = [
   {
     id: 1,
     title: "Endeover",

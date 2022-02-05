@@ -5,10 +5,10 @@ import ItemCard from './ItemCard';
 const SearchResult:React.FC<PropsSearchResult> = ({searchResult , toggleIsSelected}) => {
     return (
         <div className="selection-view">
-            {searchResult?.map( company => {
+            {searchResult?.map( item => {
                 return (
-                    <div key={company.id} onClick={() => toggleIsSelected(company.id)} >
-                        <ItemCard title={company.title} />
+                    <div key={item.id} onClick={() => toggleIsSelected(item.id)} >
+                        <ItemCard title={item.title} />
                     </div>
                 )
             })}

@@ -1,7 +1,7 @@
-import { Company } from "../types/shared";
+import { Item } from "../types/shared";
 
 interface State {
-    list: Company[],
+    list: Item[],
     searchInput:string
 }
 
@@ -10,7 +10,7 @@ interface Action {
     payload?: any
 }
 
-const  searchFunction = ( list:Company[], value:string ):Company[] => {
+const  searchFunction = ( list:Item[], value:string ):Item[] => {
  return (
     list.filter( item => {
         return item.title.toLowerCase().includes(value.toLowerCase())
@@ -18,7 +18,7 @@ const  searchFunction = ( list:Company[], value:string ):Company[] => {
  ) 
 }
 
-const sortFunction = (array:Company[]):Company[] => {
+const sortFunction = (array:Item[]):Item[] => {
     console.log('array', array);
     return (
         array.sort(function (a, b) {
