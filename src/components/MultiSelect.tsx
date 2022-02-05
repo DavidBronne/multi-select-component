@@ -27,7 +27,7 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({listInput}) => {
         <div className="multi-select">
             <div className="board search-board">
                 <SearchField setSearchInput={setSearchInput} searchInput={searchInput}/>
-                <ClearButton clearAllSelectionAndSearch={clearAllSelectionAndSearch}/>  
+                <ClearButton clearAllSelectionAndSearch={clearAllSelectionAndSearch} selectedList={selectedList}/>  
             </div>
             <div className="board selection-board">
                 <SearchResult searchResult={searchResult} toggleIsSelected={toggleIsSelected}/>

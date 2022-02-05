@@ -28,5 +28,6 @@ export interface PropsItemCard {
 }
 
 export interface PropsClearButton {
-    clearAllSelectionAndSearch: () => void
+  selectedList:Company[];  
+  clearAllSelectionAndSearch: () => void
 }
