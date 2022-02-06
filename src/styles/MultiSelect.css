@@ -1,4 +1,6 @@
 /* MultiSelect */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
+
 .multi-select {
     display: flex;
     flex-direction: column;
@@ -9,7 +11,7 @@
 .board {
     display: flex;
     flex-direction: row;
-    border-style: solid;
+    /* border-bottom: 1px solid var(--main-border-color) ; */
     width: 100%;
     padding: 4px;
 }
@@ -21,7 +23,7 @@
   }
 
 .search-board {
-    justify-content: space-between;
+    justify-content: space-around;
     
 }
 
@@ -32,26 +34,33 @@
 .selection-view {
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-color: green;
+    /* border-bottom: 1px solid var(--main-border-color) ; */
     width: 50%;
+    margin: 8px;
+
+}
+
+.selection-title {
+    font-size: 18px;
+    font-weight: 800;
 }
 
 /* ItemCard */
 
-.item-card {
-    border-style: solid;
-    border-color: red;
-    margin: 1px;
+.item-card, input {
+    padding: 8px;
+    border-bottom: 1px solid var(--main-border-color) ;
+
 }
 
 /* ClearButton */
 
 .hovering {
-    background-color: hotpink;
+    box-shadow: 0 0 5px;
 }
 
-/* SearchField */
-.input {
-    background-color: hotpink;
+input {
+    outline: 0;
+    border-width: 0 0 1px;
+    
 }

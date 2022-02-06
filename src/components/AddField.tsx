@@ -8,7 +8,7 @@ const AddField:React.FC<PropsAddOption> = ( {addOption} ) => {
     const [option , setOption] = useState("");
 
     const isDisabled = option.trim().length ? false : true
-console.log('option.trim().length :>> ', option.trim().length);
+
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setOption(e.target.value);
     }

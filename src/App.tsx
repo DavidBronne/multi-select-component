@@ -31,8 +31,10 @@ const listInput: Item[] = [
 
   return (
       <div className="App">
-        <div>OrbitalAds frontend challenge</div>
-        <MultiSelect listInput={listInput}/>
+        <div className="frontent-challenge">
+          <div className="app-title">OrbitalAds MultiSelect Component</div>
+          <MultiSelect listInput={listInput}/>
+        </div>
       </div>
   );
 }

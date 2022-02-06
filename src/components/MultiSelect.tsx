@@ -40,8 +40,9 @@ console.log('list :>> ', list);
                 <ClearButton clearAll={clearAll} selectedList={selectedList}/>  
             </div>
             <div className="board selection-board">
-                <List list={searchResult} toggleIsSelected={toggleIsSelected}/>
-                <List list={selectedList} toggleIsSelected={toggleIsSelected}/>
+                <List list={searchResult} toggleIsSelected={toggleIsSelected} name="Options" />
+                <hr/>
+                <List list={selectedList} toggleIsSelected={toggleIsSelected} name="Selection"/>
             </div>
         </div>
     )

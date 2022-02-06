@@ -8,7 +8,8 @@ export interface Item {
 
 export interface PropsList {
   list:Item[],
-  toggleIsSelected: (id:number) => void
+  toggleIsSelected: (id:number) => void,
+  name:string
 }
 
 export interface PropsSearchField {
