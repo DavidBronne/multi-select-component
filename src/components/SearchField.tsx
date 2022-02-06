@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropsSearchField } from '../types/MultiSelect';
-
+import {AiOutlineSearch} from 'react-icons/ai' ;
 const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput}) => {
     
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -8,7 +8,7 @@ const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput})
     }
 
     return (
-        <form >
+        <form className="search-form">
             <label htmlFor="search-input"></label>
             <input
                 className = "input" 
@@ -16,8 +16,9 @@ const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput})
                 id="search-input" 
                 value={searchInput} 
                 placeholder="Type to search" 
-                onChange={handleChange}
+                onChange={handleChange}  
             />
+            <AiOutlineSearch/>
         </form>
     )
 }

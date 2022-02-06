@@ -25,6 +25,8 @@
 }
 
 .app-title {
-    border-bottom: 1px solid var(--main-border-color) ;
-    padding: 8px
+    
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 800;
 }

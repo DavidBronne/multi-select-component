@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {AiOutlinePlus} from 'react-icons/ai' ;
 interface PropsAddOption {
     addOption: (option:string) => void
 }
@@ -20,17 +20,19 @@ const AddField:React.FC<PropsAddOption> = ( {addOption} ) => {
     }
 
     return (
-      <form onSubmit={handleSubmit}>
-          <button type="submit" disabled={isDisabled}>Add</button>
-          <label htmlFor="add-input"></label>
-          <input  
+      <form onSubmit={handleSubmit}> 
+        <label htmlFor="add-input"></label>
+        <input  
             className = "input"
             type="text" 
             id="add-input"
             value={option} 
             placeholder="Add option"
             onChange={handleChange}
-            />
+        />
+        <button className="add-button" type="submit" disabled={isDisabled}>            
+            <AiOutlinePlus/>
+        </button>
       </form>
   );
 };

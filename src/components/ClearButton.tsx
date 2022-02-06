@@ -7,6 +7,7 @@ const ClearButton:React.FC<PropsClearButton> = ( {clearAll , selectedList} ) => 
   
   return (
     <button 
+      className="clear-button"
       onClick={clearAll} 
       disabled={isDisabled}
     >
