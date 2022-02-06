@@ -1,39 +1,18 @@
 import React  from 'react';
 import './App.css';
 import MultiSelect from './components/MultiSelect';
-import { Item } from './types/MultiSelect';
 
+// Please run the follwing command to start the JSON server
+// json-server --watch db.json --port 3004
 
 const App : React.FC = () => {
 
-const listInput: Item[] = [
-  {
-    id: 1,
-    title: "Endeover",
-    isSelected: false
-  },    
-  {
-    id: 2,
-    title: "Enterprise",
-    isSelected: false
-  },    
-  {
-    id: 3,
-    title: "Atlantis",
-    isSelected: false
-  },    
-  {
-    id: 4,
-    title: "Colombia",
-    isSelected: false
-  }
-]
-
+const endPointCall = "http://localhost:3004/companies/";
   return (
       <div className="App">
         <div className="frontent-challenge">
           <div className="app-title">MultiSelect Component</div>
-          <MultiSelect listInput={listInput}/>
+          <MultiSelect endPointCall={endPointCall}/>
         </div>
       </div>
   );

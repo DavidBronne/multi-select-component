@@ -18,7 +18,7 @@ export interface PropsSearchField {
 }
 
 export interface PropsMultiSelect {
-    listInput?:Item[];
+    endPointCall?:string;
 }
 
 export interface PropsItemCard {
@@ -34,19 +34,34 @@ export interface PropsClearButton {
 
 export interface State {
   list: Item[],
-  searchInput:string
+  searchInput:string,
+  error:string,
+  loading: boolean,
 }
 
 export enum ReducerActionType {
-  CLEAR_ALL,
+  INITIALIZE_OPTIONS,
+  OPTIONS_LOADING_START,
+  OPTIONS_LOADING_ERROR,
   SET_SEARCH_INPUT,
   TOGGLE_IS_SELECTED,
-  ADD_OPTION
+  ADD_OPTION,
+  CLEAR_ALL
 }
 
-type ActionClearAll = {
-  type: ReducerActionType.CLEAR_ALL ;
+type InitializeOptions = {
+  type: ReducerActionType.INITIALIZE_OPTIONS ;
   payload: any | Item[]
+}
+
+type OptionsLoadingStart = {
+  type: ReducerActionType.OPTIONS_LOADING_START ;
+  payload:boolean
+}
+
+type OptionsLoadingError = {
+  type: ReducerActionType.OPTIONS_LOADING_ERROR ;
+  payload:string
 }
 
 type ActionSetSearchInput = {
@@ -61,7 +76,12 @@ type ActionToggleIsSelected  = {
 
 type ActionAddOption  = {
   type: ReducerActionType.ADD_OPTION ;
-  payload: string
+  payload: Item
 }
 
-export type Action = ActionClearAll | ActionSetSearchInput | ActionToggleIsSelected | ActionAddOption
+type ClearAll  = {
+  type: ReducerActionType.CLEAR_ALL ;
+  payload: boolean
+}
+
+export type Action = InitializeOptions | ActionSetSearchInput | ActionToggleIsSelected | ActionAddOption | OptionsLoadingError | OptionsLoadingStart | ClearAll; 

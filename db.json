@@ -1,0 +1,54 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "title": "Endeover",
+      "isSelected": false
+    },
+    {
+      "id": 2,
+      "title": "Enterprise",
+      "isSelected": false
+    },
+    {
+      "id": 3,
+      "title": "Atlantis",
+      "isSelected": false
+    },
+    {
+      "id": 4,
+      "title": "Colombia",
+      "isSelected": false
+    },
+    {
+      "id": 8.508233047273581,
+      "title": "cd",
+      "isSelected": false
+    },
+    {
+      "id": 5.823588906861454,
+      "title": "truc",
+      "isSelected": false
+    },
+    {
+      "id": 0.19723980710737443,
+      "title": "ttt",
+      "isSelected": false
+    },
+    {
+      "id": 8.388587543142556,
+      "title": "test",
+      "isSelected": false
+    },
+    {
+      "id": 7.387462798410809,
+      "title": "ccc",
+      "isSelected": false
+    },
+    {
+      "id": 5.0006146944229695,
+      "title": "success",
+      "isSelected": false
+    }
+  ]
+}

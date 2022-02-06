@@ -20,7 +20,8 @@ const shapeAddedOption = (title:string):Item => {
     return {
         id: (Math.random() * 100) / 10 ,
         title: title,
-        isSelected: false}
+        isSelected: false
+    }
 } 
 
 export { 
