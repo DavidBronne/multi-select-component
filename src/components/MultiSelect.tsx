@@ -30,14 +30,19 @@ console.log('state :>> ', state);
     useEffect(() => {
         dispatch({type:ReducerActionType.OPTIONS_LOADING_START, payload:true});
         fetch(endPointCall)
-            .then(res => res.json())
+            .then(res => {
+                console.log('res :>> ', res);
+                if (!res.ok) {
+                    throw Error(res.statusText);
+                }
+                return res.json()})
             .then((res) => {
                 console.log('res :>> ', res);
                 dispatch({type:ReducerActionType.INITIALIZE_OPTIONS, payload:res});
             })
-            .catch(() => {
-                console.log('endPointCall', endPointCall);
-                dispatch({type:ReducerActionType.OPTIONS_LOADING_ERROR, payload:endPointCall});
+            .catch((error) => {
+                console.log('error', error);
+                dispatch({type:ReducerActionType.OPTIONS_LOADING_ERROR, payload: error + " " + endPointCall});
             });
         }, [endPointCall]);
 
@@ -65,7 +70,7 @@ console.log('state :>> ', state);
 
     return (
         <div className="multi-select">
-            {error.length > 1 && <div>Error:{error}</div>}
+            {error.length > 1 && <div>{error}</div>}
             {loading && <div>Loading</div>}
 
             <div className="board search-board">

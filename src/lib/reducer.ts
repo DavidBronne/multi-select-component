@@ -4,7 +4,6 @@ const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
     const {type, payload} = action
     switch (type) {
       case ReducerActionType.INITIALIZE_OPTIONS: {
-      
         return {
             ...state,
             list:[...payload],
@@ -14,7 +13,6 @@ const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
         }
       }
       case ReducerActionType.OPTIONS_LOADING_START: {
-       
         return {
             ...state,
             loading: payload,
