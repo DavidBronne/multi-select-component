@@ -2,8 +2,7 @@ import React from 'react';
 import { PropsList } from '../types/MultiSelect';
 import ItemCard from './ItemCard';
 
-const List:React.FC<PropsList> = ({list , toggleIsSelected, name}) => {
-    console.log('name :>> ', name);
+const List:React.FC<PropsList> = ({ list , toggleIsSelected, name }) => {
     return (
         <div className="selection-view">
             <div className="title">{name}</div>
@@ -18,4 +17,4 @@ const List:React.FC<PropsList> = ({list , toggleIsSelected, name}) => {
     ) 
 }
 
-export default List
+export default List;

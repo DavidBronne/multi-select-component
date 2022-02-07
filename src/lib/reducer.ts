@@ -13,6 +13,7 @@ const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
         }
       }
       case ReducerActionType.OPTIONS_LOADING_START: {
+
         return {
             ...state,
             loading: payload,

@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
-import {AiOutlinePlus} from 'react-icons/ai' ;
-interface PropsAddOption {
-    addOption: (option:string) => void
-}
+import { AiOutlinePlus } from 'react-icons/ai' ;
+import { PropsAddOption } from '../types/MultiSelect';
 
-const AddField:React.FC<PropsAddOption> = ( {addOption} ) => {
-    const [option , setOption] = useState("");
+const AddField:React.FC<PropsAddOption> = ( { addOption } ) => {
+    const [option , setOption] = useState<string>("");
 
-    const isDisabled = option.trim().length ? false : true
+    const isDisabled = option.trim().length ? false : true;
 
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setOption(e.target.value);
-    }
+    };
     
     const handleSubmit = (e:React.FormEvent) => {
-        e.preventDefault()
-        addOption(option)
-        setOption("")
-    }
+        e.preventDefault();
+        addOption(option);
+        setOption("");
+    };
 
     return (
       <form onSubmit={handleSubmit}> 

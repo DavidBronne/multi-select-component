@@ -1,11 +1,12 @@
 import React from 'react';
 import { PropsSearchField } from '../types/MultiSelect';
 import {AiOutlineSearch} from 'react-icons/ai' ;
-const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput}) => {
+
+const SearchField:React.FC<PropsSearchField> = ( { setSearchInput , searchInput }) => {
     
     const handleChange:React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setSearchInput(e.target.value);
-    }
+    };
 
     return (
         <form className="search-form">
@@ -23,4 +24,4 @@ const SearchField:React.FC<PropsSearchField> = ( {setSearchInput , searchInput})
     )
 }
 
-export default SearchField
+export default SearchField;

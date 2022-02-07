@@ -1,67 +1,64 @@
-import React, {useReducer, useEffect, useState } from 'react'
-import { search, shapeAddedOption, sort } from '../lib/helpers'
-import { PropsMultiSelect, ReducerActionType } from '../types/MultiSelect'
-import '../styles/MultiSelect.css'
+import React, {useReducer, useEffect, useState } from 'react';
+import { search, shapeAddedOption, sort } from '../lib/helpers';
+import { PropsMultiSelect, ReducerActionType } from '../types/MultiSelect';
+import '../styles/MultiSelect.css';
 
 //Components
-import ClearButton from './ClearButton'
-import SearchField from './SearchField'
-import List from './List'
-import AddField from './AddField'
-import { multiSelectReducer } from '../lib/reducer'
+import ClearButton from './ClearButton';
+import SearchField from './SearchField';
+import List from './List';
+import AddField from './AddField';
+import { multiSelectReducer } from '../lib/reducer';
 
-
-
-const MultiSelect:React.FC<PropsMultiSelect> = ({endPointCall = "Please provide an end point"}) => {
+const MultiSelect:React.FC<PropsMultiSelect> = ({ endPointCall = 'Please provide an end point' }) => {
     const optionLoading = [{
         id: 0,
-        title: "Loading",
+        title: 'Loading',
         isSelected: false
-      }]
+      }];
 
     const [state, dispatch] = useReducer(multiSelectReducer, {
         list: [...optionLoading],
-        searchInput:"",
-        error:'',
+        searchInput: '',
+        error: '',
         loading: false
-      })
-    const { list, searchInput, error, loading} = state;
+      });
+    const { list, searchInput, error, loading } = state;
 
-    const [newOption, setNewOption] = useState('')
+    const [newOption, setNewOption] = useState('');
     const addOption = (option:string) => {
-        setNewOption(option)
-    }
+        setNewOption(option);
+    };
 
     useEffect(() => {
-        dispatch({type:ReducerActionType.OPTIONS_LOADING_START, payload:true});
+        dispatch({ type:ReducerActionType.OPTIONS_LOADING_START, payload:true });
         fetch(endPointCall)
             .then(res => {
-                console.log('res :>> ', res);
                 if (!res.ok) {
                     throw Error(res.statusText);
                 }
                 return res.json()})
             .then((res) => {
-                dispatch({type:ReducerActionType.INITIALIZE_OPTIONS, payload:res});
+                dispatch({ type:ReducerActionType.INITIALIZE_OPTIONS, payload:res });
             })
             .catch((error) => {
-                dispatch({type:ReducerActionType.OPTIONS_LOADING_ERROR, payload: error + " " + endPointCall});
+                dispatch({ type:ReducerActionType.OPTIONS_LOADING_ERROR, payload: error + " " + endPointCall });
             });
         }, [endPointCall]);
 
     useEffect(() => {
-        if (!newOption.length) return undefined;
-        const obj = shapeAddedOption (newOption)
+        if (!newOption.length) return ;
+        const obj = shapeAddedOption (newOption) ;
         fetch(endPointCall, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(obj)
-            }).then(res => res.json())
+            })
+            .then(res => res.json())
             .then( (res)=> {
-            console.log('res :>> ', res);
-            dispatch({type:ReducerActionType.ADD_OPTION, payload: res});
+                dispatch({type:ReducerActionType.ADD_OPTION, payload: res});
             })
     }, [newOption, endPointCall]);
 
@@ -92,4 +89,4 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({endPointCall = "Please provide 
     )
 }
 
-export default MultiSelect
+export default MultiSelect;
