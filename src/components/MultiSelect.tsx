@@ -72,7 +72,7 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({ endPointCall = 'Please provide
 
     return (
         <div className="multi-select">
-            {error.length > 1 && <div>{error}</div>}
+            {error.length > 0 && <div>{error}</div>}
             {loading && <div>Loading</div>}
 
             <div className="board search-board">
