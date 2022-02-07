@@ -50,7 +50,7 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({endPointCall = "Please provide 
         }, [endPointCall]);
 
     useEffect(() => {
-        if (!newOption.length) return
+        if (!newOption.length) return undefined;
         const obj = shapeAddedOption (newOption)
         fetch(endPointCall, {
             method: "POST",
@@ -63,7 +63,7 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({endPointCall = "Please provide 
             console.log('res :>> ', res);
             dispatch({type:ReducerActionType.ADD_OPTION, payload: res});
             })
-    }, [newOption]);
+    }, [newOption, endPointCall]);
 
     const setSearchInput = (searchInput:string):void => dispatch({type:ReducerActionType.SET_SEARCH_INPUT,payload:searchInput});
     const clearAll = ():void => dispatch({type:ReducerActionType.CLEAR_ALL, payload:false});
