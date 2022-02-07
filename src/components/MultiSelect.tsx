@@ -1,4 +1,4 @@
-import React, {useReducer, useEffect } from 'react'
+import React, {useReducer, useEffect, useState } from 'react'
 import { search, shapeAddedOption, sort } from '../lib/helpers'
 import { PropsMultiSelect, ReducerActionType } from '../types/MultiSelect'
 import '../styles/MultiSelect.css'
@@ -26,7 +26,12 @@ const MultiSelect:React.FC<PropsMultiSelect> = ({endPointCall = "Please provide 
         loading: false
       })
     const { list, searchInput, error, loading} = state;
-console.log('state :>> ', state);
+
+    const [newOption, setNewOption] = useState('')
+    const addOption = (option:string) => {
+        setNewOption(option)
+    }
+
     useEffect(() => {
         dispatch({type:ReducerActionType.OPTIONS_LOADING_START, payload:true});
         fetch(endPointCall)
@@ -37,32 +42,32 @@ console.log('state :>> ', state);
                 }
                 return res.json()})
             .then((res) => {
-                console.log('res :>> ', res);
                 dispatch({type:ReducerActionType.INITIALIZE_OPTIONS, payload:res});
             })
             .catch((error) => {
-                console.log('error', error);
                 dispatch({type:ReducerActionType.OPTIONS_LOADING_ERROR, payload: error + " " + endPointCall});
             });
         }, [endPointCall]);
 
-    const setSearchInput = (searchInput:string):void => dispatch({type:ReducerActionType.SET_SEARCH_INPUT,payload:searchInput});
-    const clearAll = ():void => dispatch({type:ReducerActionType.CLEAR_ALL, payload:false});
-    const toggleIsSelected = (itemId:number):void => dispatch ({type:ReducerActionType.TOGGLE_IS_SELECTED, payload:itemId});
-    const addOption = (option:string) => {
-        const obj = shapeAddedOption (option)
+    useEffect(() => {
+        if (!newOption.length) return
+        const obj = shapeAddedOption (newOption)
         fetch(endPointCall, {
             method: "POST",
             headers: {
-              "Content-Type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(obj)
-          }).then(res => res.json())
-          .then( (res)=> {
+            }).then(res => res.json())
+            .then( (res)=> {
             console.log('res :>> ', res);
             dispatch({type:ReducerActionType.ADD_OPTION, payload: res});
             })
-        };
+    }, [newOption]);
+
+    const setSearchInput = (searchInput:string):void => dispatch({type:ReducerActionType.SET_SEARCH_INPUT,payload:searchInput});
+    const clearAll = ():void => dispatch({type:ReducerActionType.CLEAR_ALL, payload:false});
+    const toggleIsSelected = (itemId:number):void => dispatch ({type:ReducerActionType.TOGGLE_IS_SELECTED, payload:itemId});
 
     const unSelectedList = list.filter(item => !item.isSelected);
     const selectedList = sort(list.filter(item => item.isSelected));
