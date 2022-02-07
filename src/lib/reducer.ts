@@ -2,10 +2,9 @@ import { State, Action, ReducerActionType } from "../types/MultiSelect";
 import { shapeAddedOption } from "./helpers";
 
 const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
-    const {type, payload} = action
+    const {type, payload} = action;
     switch (type) {
       case ReducerActionType.CLEAR_ALL: {
-        console.log('payload', payload);
         return {
             ...state,
             list:[...payload],
@@ -38,4 +37,4 @@ const multiSelectReducer: React.Reducer<State , Action> = (state, action) => {
     }
   }
 
-  export {multiSelectReducer}
+  export {multiSelectReducer};
